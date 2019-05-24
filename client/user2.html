@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Socket.IO Chat Example</title>
+ 
+</head>
+
+<body>
+    <div>
+        <button id="createNew" style="width:12em">Create new Todo List</button>
+        <form id="toDoList">
+            <textarea rows="3" style="width: 500px" id="toDoName"></textarea><br>
+            <input type="radio" name="visibility" value="public"> Public<br>
+            <input type="radio" name="visibility" value="private"> Private<br>
+            <button id="create">Create</button>
+            <button id="closeToDo">Close</button>
+        </form>
+        <button id="createTask" style="width:12em">Create Task</button>
+        <form id="newTask">
+            <textarea rows="3" style="width: 500px" id="taskName"></textarea><br>
+            <button id="create">Create</button>
+            <button id="closeTask">Close</button>
+        </form>
+        <button id="addFriend">Accept</button>
+        <button id="decline">Decline</button>
+        <button id="removeFriend">Remove Friend</button>
+        <button id="seenNotification">Seen</button>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="socket.io.js"></script>
+    <script src="user2.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $('#toDoList').hide()
+            $('#newTask').hide()
+            
+            $('#createNew').click(()=>{
+                $('#toDoList').show()
+                $('#createTask').click(()=>{
+                    $('#newTask').show()
+                })
+            })
+
+            $('#closeToDo').click(()=>{
+                $('#toDoList').hide()
+                $('#closeTask').click(()=>{
+                    $('#newTask').hide()
+                }) 
+            })
+        })
+    </script>
+</body>
+
+</html>
