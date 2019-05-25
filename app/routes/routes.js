@@ -11,7 +11,7 @@ module.exports.setRouter = (app) =>  {
     //params: firstName, lastName, country, countryCode, mobileNumber, email, password
     app.post(`${baseUrl}/signup`, userController.signupFunction)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/user/singup Api for user to singup
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/user/singup Api for user to singup
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -56,7 +56,7 @@ module.exports.setRouter = (app) =>  {
     //params: email, password
     app.post(`${baseUrl}/login`, userController.loginFunction)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/user/login Api for user login
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/user/login Api for user login
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -96,7 +96,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId
     app.post(`${baseUrl}/logout`, userController.logoutFunction)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/user/logout Api for Logout
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/user/logout Api for Logout
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -123,7 +123,7 @@ module.exports.setRouter = (app) =>  {
     //params: authToken
     app.get(`${baseUrl}/get/all`,auth.isAuthorized, userController.getAllUsers)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/user/get/all Get All Users
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/user/get/all Get All Users
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -160,7 +160,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId, authToken
     app.get(`${baseUrl}/get/user`, auth.isAuthorized, userController.getSingleUser)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/user/get/user Get Single User Info
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/user/get/user Get Single User Info
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -198,7 +198,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId, authToken
     app.post(`${baseUrl}/delete/user`, auth.isAuthorized, userController.deleteUser)
     /**
-     * @api {delete} http://trackerapi.sanjayinfotechy.com/api/v1/user/delete/user Api to delete user details
+     * @api {delete} http://todo.sanjayinfotechy.com/api/v1/user/delete/user Api to delete user details
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -231,7 +231,7 @@ module.exports.setRouter = (app) =>  {
     //Other parameters: optional
     app.put(`${baseUrl}/edit/userId`, auth.isAuthorized, userController.editUser)
     /**
-     * @api {put} http://trackerapi.sanjayinfotechy.com/api/v1/user/edit/userId Api to edit user details
+     * @api {put} http://todo.sanjayinfotechy.com/api/v1/user/edit/userId Api to edit user details
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -264,7 +264,7 @@ module.exports.setRouter = (app) =>  {
     //params: email
     app.post(`${baseUrl}/forgot-password`, userController.sendResetPasswordLink)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/user/forgot-password Api to send password reset link
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/user/forgot-password Api to send password reset link
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -291,7 +291,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId, password
     app.post(`${baseUrl}/:userId/reset-password`, userController.resetPassword)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/user/:userId/reset-password Api for forgot-password
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/user/:userId/reset-password Api for forgot-password
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -323,7 +323,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId, password
     app.post(`${baseUrl}/change/password`, userController.changePassword)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/user/change/password Api for change the existing password
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/user/change/password Api for change the existing password
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 
@@ -355,7 +355,7 @@ module.exports.setRouter = (app) =>  {
      //params: userId
      app.get(`${baseUrl}/get/all/notifications`, userController.getAllUserNotifications)
      /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/user/get/all/notifications Api to Get All User Received Norifications
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/user/get/all/notifications Api to Get All User Received Norifications
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 

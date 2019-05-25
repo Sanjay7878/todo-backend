@@ -11,7 +11,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId, listName, visibility(public, private)
     app.post(`${baseUrl}/create`, toDoController.createToDo)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/create Create New ToDo List
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/toDo/create Create New ToDo List
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -51,7 +51,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId
     app.get(`${baseUrl}/get-all/user/todolist`, toDoController.getAllUserCreatedList)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/get-all/user/todolist Get All User ToDo Lists
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/toDo/get-all/user/todolist Get All User ToDo Lists
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -87,7 +87,7 @@ module.exports.setRouter = (app) =>  {
     //params: listId, listName, visibility(public, private)
     app.put(`${baseUrl}/edit/todolist`, toDoController.editUserToDoList)
     /**
-     * @api {put} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/edit/todolist Edit Particular User ToDo Lists
+     * @api {put} http://todo.sanjayinfotechy.com/api/v1/toDo/edit/todolist Edit Particular User ToDo Lists
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -120,7 +120,7 @@ module.exports.setRouter = (app) =>  {
     //params: listId
     app.post(`${baseUrl}/delete/todolist`, toDoController.deleteUserToDoList)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/delete/todolist Delete Particular User ToDo Lists
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/toDo/delete/todolist Delete Particular User ToDo Lists
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -154,7 +154,7 @@ module.exports.setRouter = (app) =>  {
     //params: listId, taskName
     app.post(`${baseUrl}/create/task`, toDoController.createListTask)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/create/task Create New Task For A ToDo List
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/toDo/create/task Create New Task For A ToDo List
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -191,7 +191,7 @@ module.exports.setRouter = (app) =>  {
     //params: listId
     app.get(`${baseUrl}/all/todo/tasks`, toDoController.getAllListTasks)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/all/todo/tasks Get All Task Of A ToDo List
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/toDo/all/todo/tasks Get All Task Of A ToDo List
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -226,7 +226,7 @@ module.exports.setRouter = (app) =>  {
     //params: listId, taskId, taskName
     app.put(`${baseUrl}/edit/task`, toDoController.editListTask)
     /**
-     * @api {put} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/edit/task Edit Particular ToDo Task
+     * @api {put} http://todo.sanjayinfotechy.com/api/v1/toDo/edit/task Edit Particular ToDo Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -259,7 +259,7 @@ module.exports.setRouter = (app) =>  {
     //params: taskId, status
     app.put(`${baseUrl}/change/task/status`,toDoController.changeTaskStatus)
     /**
-     * @api {put} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/change/task/status Change Status OF A Particular ToDo Task
+     * @api {put} http://todo.sanjayinfotechy.com/api/v1/toDo/change/task/status Change Status OF A Particular ToDo Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -291,7 +291,7 @@ module.exports.setRouter = (app) =>  {
     //params: listId, taskId
     app.post(`${baseUrl}/delete/task`, toDoController.deleteListTask)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/delete/task Delete A Particular ToDo Task
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/toDo/delete/task Delete A Particular ToDo Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -326,7 +326,7 @@ module.exports.setRouter = (app) =>  {
     //params: taskId, subTaskName
     app.post(`${baseUrl}/create/sub/task`, toDoController.createSubTask)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/create/sub/task Create New Sub-Task For A Task
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/toDo/create/sub/task Create New Sub-Task For A Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -364,7 +364,7 @@ module.exports.setRouter = (app) =>  {
     //params: taskId
     app.get(`${baseUrl}/get/sub/tasks`, toDoController.getAllSubTasks)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/get/sub/tasks Get All Sub-Tasks Of A Particaular Task
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/toDo/get/sub/tasks Get All Sub-Tasks Of A Particaular Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -399,7 +399,7 @@ module.exports.setRouter = (app) =>  {
     //params: subTaskId, subTaskName
     app.put(`${baseUrl}/edit/sub/task`, toDoController.editSubTask)
     /**
-     * @api {put} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/edit/sub/task Edit A Particular Sub-Task
+     * @api {put} http://todo.sanjayinfotechy.com/api/v1/toDo/edit/sub/task Edit A Particular Sub-Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -431,7 +431,7 @@ module.exports.setRouter = (app) =>  {
     //params: subTaskId, status
     app.put(`${baseUrl}/change/subtask/status`,toDoController.changeSubTaskStatus)
     /**
-     * @api {put} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/change/subtask/status Change Status Of A Particular Sub-Task
+     * @api {put} http://todo.sanjayinfotechy.com/api/v1/toDo/change/subtask/status Change Status Of A Particular Sub-Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -463,7 +463,7 @@ module.exports.setRouter = (app) =>  {
     //params: subTaskId
     app.post(`${baseUrl}/delete/sub/task`, toDoController.deleteSubTask)
     /**
-     * @api {post} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/delete/sub/task Delete A Particular Sub-Task
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/toDo/delete/sub/task Delete A Particular Sub-Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
@@ -494,7 +494,7 @@ module.exports.setRouter = (app) =>  {
     //params: listId
     app.get(`${baseUrl}/get/todo/history`, toDoController.getALLToDoHistory)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/toDo/get/todo/history Get All History Of A Particular ToDo List
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/toDo/get/todo/history Get All History Of A Particular ToDo List
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 

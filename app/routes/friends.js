@@ -12,7 +12,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId
     app.get(`${baseUrl}/get/friend-requests`, friendsConstroller.getAllFriendRequests)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/friends/get/friend-requests Get All Particular User Friend Requests
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/friends/get/friend-requests Get All Particular User Friend Requests
      * @apiVersion 0.0.1
      * @apiGroup Friends
      * 
@@ -52,7 +52,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId
     app.get(`${baseUrl}/get/sent-requests`, friendsConstroller.getAllSentRequested)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/friends/get/sent-requests Get All Particular User Sent Requests
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/friends/get/sent-requests Get All Particular User Sent Requests
      * @apiVersion 0.0.1
      * @apiGroup Friends
      * 
@@ -92,7 +92,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId
     app.get(`${baseUrl}/get/all-friends`, friendsConstroller.getAllFriends)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/friends/get/all-friends Get All Friends Of A User
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/friends/get/all-friends Get All Friends Of A User
      * @apiVersion 0.0.1
      * @apiGroup Friends
      * 
@@ -132,7 +132,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId
     app.get(`${baseUrl}/get/non-friends`, friendsConstroller.getAllNonFriends)
     /**
-     * @api {get} http://trackerapi.sanjayinfotechy.com/api/v1/friends/get/non-friends Get All Users Who are Not Friends
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/friends/get/non-friends Get All Users Who are Not Friends
      * @apiVersion 0.0.1
      * @apiGroup Friends
      * 
