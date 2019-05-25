@@ -1,7 +1,7 @@
 define({ "api": [
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/friends/get/all-friends",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/friends/get/all-friends",
     "title": "Get All Friends Of A User",
     "version": "0.0.1",
     "group": "Friends",
@@ -38,11 +38,11 @@ define({ "api": [
     },
     "filename": "routes/friends.js",
     "groupTitle": "Friends",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1FriendsGetAllFriends"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1FriendsGetAllFriends"
   },
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/friends/get/friend-requests",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/friends/get/friend-requests",
     "title": "Get All Particular User Friend Requests",
     "version": "0.0.1",
     "group": "Friends",
@@ -79,11 +79,11 @@ define({ "api": [
     },
     "filename": "routes/friends.js",
     "groupTitle": "Friends",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1FriendsGetFriendRequests"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1FriendsGetFriendRequests"
   },
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/friends/get/non-friends",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/friends/get/non-friends",
     "title": "Get All Users Who are Not Friends",
     "version": "0.0.1",
     "group": "Friends",
@@ -120,11 +120,11 @@ define({ "api": [
     },
     "filename": "routes/friends.js",
     "groupTitle": "Friends",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1FriendsGetNonFriends"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1FriendsGetNonFriends"
   },
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/friends/get/sent-requests",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/friends/get/sent-requests",
     "title": "Get All Particular User Sent Requests",
     "version": "0.0.1",
     "group": "Friends",
@@ -161,11 +161,11 @@ define({ "api": [
     },
     "filename": "routes/friends.js",
     "groupTitle": "Friends",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1FriendsGetSentRequests"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1FriendsGetSentRequests"
   },
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/all/todo/tasks",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/all/todo/tasks",
     "title": "Get All Task Of A ToDo List",
     "version": "0.0.1",
     "group": "ToDo",
@@ -202,11 +202,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1TodoAllTodoTasks"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1TodoAllTodoTasks"
   },
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/get-all/user/todolist",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/get-all/user/todolist",
     "title": "Get All User ToDo Lists",
     "version": "0.0.1",
     "group": "ToDo",
@@ -243,11 +243,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1TodoGetAllUserTodolist"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1TodoGetAllUserTodolist"
   },
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/get/sub/tasks",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/get/sub/tasks",
     "title": "Get All Sub-Tasks Of A Particaular Task",
     "version": "0.0.1",
     "group": "ToDo",
@@ -284,11 +284,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1TodoGetSubTasks"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1TodoGetSubTasks"
   },
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/get/todo/history",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/get/todo/history",
     "title": "Get All History Of A Particular ToDo List",
     "version": "0.0.1",
     "group": "ToDo",
@@ -325,11 +325,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1TodoGetTodoHistory"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1TodoGetTodoHistory"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/create",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/create",
     "title": "Create New ToDo List",
     "version": "0.0.1",
     "group": "ToDo",
@@ -380,11 +380,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1TodoCreate"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1TodoCreate"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/create/sub/task",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/create/sub/task",
     "title": "Create New Sub-Task For A Task",
     "version": "0.0.1",
     "group": "ToDo",
@@ -428,11 +428,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1TodoCreateSubTask"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1TodoCreateSubTask"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/create/task",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/create/task",
     "title": "Create New Task For A ToDo List",
     "version": "0.0.1",
     "group": "ToDo",
@@ -476,11 +476,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1TodoCreateTask"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1TodoCreateTask"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/delete/sub/task",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/delete/sub/task",
     "title": "Delete A Particular Sub-Task",
     "version": "0.0.1",
     "group": "ToDo",
@@ -517,11 +517,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1TodoDeleteSubTask"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1TodoDeleteSubTask"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/delete/task",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/delete/task",
     "title": "Delete A Particular ToDo Task",
     "version": "0.0.1",
     "group": "ToDo",
@@ -565,11 +565,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1TodoDeleteTask"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1TodoDeleteTask"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/delete/todolist",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/delete/todolist",
     "title": "Delete Particular User ToDo Lists",
     "version": "0.0.1",
     "group": "ToDo",
@@ -606,11 +606,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1TodoDeleteTodolist"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1TodoDeleteTodolist"
   },
   {
     "type": "put",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/change/subtask/status",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/change/subtask/status",
     "title": "Change Status Of A Particular Sub-Task",
     "version": "0.0.1",
     "group": "ToDo",
@@ -654,11 +654,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PutHttpTrackerapiSanjayinfotechyComApiV1TodoChangeSubtaskStatus"
+    "name": "PutHttpTodoSanjayinfotechyComApiV1TodoChangeSubtaskStatus"
   },
   {
     "type": "put",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/change/task/status",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/change/task/status",
     "title": "Change Status OF A Particular ToDo Task",
     "version": "0.0.1",
     "group": "ToDo",
@@ -702,11 +702,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PutHttpTrackerapiSanjayinfotechyComApiV1TodoChangeTaskStatus"
+    "name": "PutHttpTodoSanjayinfotechyComApiV1TodoChangeTaskStatus"
   },
   {
     "type": "put",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/edit/sub/task",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/edit/sub/task",
     "title": "Edit A Particular Sub-Task",
     "version": "0.0.1",
     "group": "ToDo",
@@ -750,11 +750,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PutHttpTrackerapiSanjayinfotechyComApiV1TodoEditSubTask"
+    "name": "PutHttpTodoSanjayinfotechyComApiV1TodoEditSubTask"
   },
   {
     "type": "put",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/edit/task",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/edit/task",
     "title": "Edit Particular ToDo Task",
     "version": "0.0.1",
     "group": "ToDo",
@@ -805,11 +805,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PutHttpTrackerapiSanjayinfotechyComApiV1TodoEditTask"
+    "name": "PutHttpTodoSanjayinfotechyComApiV1TodoEditTask"
   },
   {
     "type": "put",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/toDo/edit/todolist",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/edit/todolist",
     "title": "Edit Particular User ToDo Lists",
     "version": "0.0.1",
     "group": "ToDo",
@@ -860,11 +860,11 @@ define({ "api": [
     },
     "filename": "routes/toDo.js",
     "groupTitle": "ToDo",
-    "name": "PutHttpTrackerapiSanjayinfotechyComApiV1TodoEditTodolist"
+    "name": "PutHttpTodoSanjayinfotechyComApiV1TodoEditTodolist"
   },
   {
     "type": "delete",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/delete/user",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/delete/user",
     "title": "Api to delete user details",
     "version": "0.0.1",
     "group": "Users",
@@ -908,11 +908,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "DeleteHttpTrackerapiSanjayinfotechyComApiV1UserDeleteUser"
+    "name": "DeleteHttpTodoSanjayinfotechyComApiV1UserDeleteUser"
   },
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/get/all",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/get/all",
     "title": "Get All Users",
     "version": "0.0.1",
     "group": "Users",
@@ -949,11 +949,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1UserGetAll"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1UserGetAll"
   },
   {
     "type": "get",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/get/user",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/get/user",
     "title": "Get Single User Info",
     "version": "0.0.1",
     "group": "Users",
@@ -997,11 +997,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "GetHttpTrackerapiSanjayinfotechyComApiV1UserGetUser"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1UserGetUser"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/change/password",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/change/password",
     "title": "Api for change the existing password",
     "version": "0.0.1",
     "group": "Users",
@@ -1045,11 +1045,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1UserChangePassword"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1UserChangePassword"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/forgot-password",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/forgot-password",
     "title": "Api to send password reset link",
     "version": "0.0.1",
     "group": "Users",
@@ -1086,11 +1086,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1UserForgotPassword"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1UserForgotPassword"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/get/all/notifications",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/get/all/notifications",
     "title": "Api to Get All User Received Norifications",
     "version": "0.0.1",
     "group": "Users",
@@ -1127,11 +1127,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1UserGetAllNotifications"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1UserGetAllNotifications"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/login",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/login",
     "title": "Api for user login",
     "version": "0.0.1",
     "group": "Users",
@@ -1175,11 +1175,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1UserLogin"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1UserLogin"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/logout",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/logout",
     "title": "Api for Logout",
     "version": "0.0.1",
     "group": "Users",
@@ -1216,11 +1216,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1UserLogout"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1UserLogout"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/singup",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/singup",
     "title": "Api for user to singup",
     "version": "0.0.1",
     "group": "Users",
@@ -1299,11 +1299,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1UserSingup"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1UserSingup"
   },
   {
     "type": "post",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/:userId/reset-password",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/:userId/reset-password",
     "title": "Api for forgot-password",
     "version": "0.0.1",
     "group": "Users",
@@ -1347,11 +1347,11 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "PostHttpTrackerapiSanjayinfotechyComApiV1UserUseridResetPassword"
+    "name": "PostHttpTodoSanjayinfotechyComApiV1UserUseridResetPassword"
   },
   {
     "type": "put",
-    "url": "http://trackerapi.sanjayinfotechy.com/api/v1/user/edit/userId",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/edit/userId",
     "title": "Api to edit user details",
     "version": "0.0.1",
     "group": "Users",
@@ -1395,6 +1395,6 @@ define({ "api": [
     },
     "filename": "routes/routes.js",
     "groupTitle": "Users",
-    "name": "PutHttpTrackerapiSanjayinfotechyComApiV1UserEditUserid"
+    "name": "PutHttpTodoSanjayinfotechyComApiV1UserEditUserid"
   }
 ] });
