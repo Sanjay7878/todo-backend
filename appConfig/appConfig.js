@@ -1,6 +1,6 @@
 let appConfig = {}
 
-appConfig.port = '3000'
+appConfig.port = '4000'
 appConfig.env = 'dev'
 appConfig.allowedOrigin= "*"
 appConfig.db = {
