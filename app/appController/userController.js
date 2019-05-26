@@ -54,7 +54,7 @@ let signupFunction = (req, res) =>{
 
     let signup = () =>{
         return new Promise((resolve, reject)=>{
-            UserModel.findOne({email: req.body.email)})
+            UserModel.findOne({email: req.body.email})
                 .exec((err, retrivedDetails)=>{
                     if(err){
                         logger.error(err.message, " userController: signupFunction, signup", 10)
