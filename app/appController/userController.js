@@ -54,7 +54,7 @@ let signupFunction = (req, res) =>{
 
     let signup = () =>{
         return new Promise((resolve, reject)=>{
-            UserModel.findOne({email: req.body.email.toLowerCase()})
+            UserModel.findOne({email: req.body.email)})
                 .exec((err, retrivedDetails)=>{
                     if(err){
                         logger.error(err.message, " userController: signupFunction, signup", 10)
@@ -63,13 +63,13 @@ let signupFunction = (req, res) =>{
                     }else if(check.isEmpty(retrivedDetails)){
 
                         let newUser = new UserModel({
-                            firstName: req.body.firstName.toLowerCase(),
-                            lastName: req.body.lastName.toLowerCase(),
+                            firstName: req.body.firstName,
+                            lastName: req.body.lastName,
                             userId: shortid.generate(),
                             country: req.body.country,
                             countryCode: req.body.countryCode,
                             mobileNumber: req.body.mobileNumber,
-                            email: req.body.email.toLowerCase(),
+                            email: req.body.email,
                             password: paswwordLib.hashPassword(req.body.password),
                             createdOn: time.now()
                         })
