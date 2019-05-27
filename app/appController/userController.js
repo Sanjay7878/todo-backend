@@ -80,7 +80,7 @@ let signupFunction = (req, res) =>{
                                 let apiResponse = response.generate(true, "Failed to Create User", 500, null)
                                 reject(apiResponse)
                             } else {
-                                const html = `<h2>Welcome To Tracker Ready Application</h2>`
+                                const html = `<h2>Welcome To Task Ready Application</h2>`
                                 let details = {
                                     email: req.body.email.toLowerCase(),
                                     message: "Welcome",
@@ -363,7 +363,7 @@ let sendResetPasswordLink = (req, res)=>{
                 res.send(apiResponse)
             } else {
                 logger.info("User Found", "userController: sendResetPasswordLink", 8)
-                const html = `<a href="${appConfig.url}/${userDetails.userId}/reset-password"> Click Here to reset the password</a>`
+                const html = `<a href="http://localhost:4200/${userDetails.userId}/reset-password"> Click Here to reset the password</a>`
                 let details = {
                     email: req.body.email,
                     message: "Rest Password Link",
