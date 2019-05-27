@@ -114,6 +114,28 @@ let getAllUserCreatedList = (req, res)=>{
     }
 } // end get all user created list
 
+let getSingleToDoList = (req, res)=>{
+    if(req.body.listId || req.query.listId){
+        ToDoModel.findOne({listId: req.body.listId || req.query.listId})
+            .select('-__v -_id')
+            .lean()
+            .exec((err, todoList)=>{
+                if(err){
+                    logger.error(err, "toDoController: getSingleToDoList", 8)
+                    let apiResponse = response.generate(true, "Failed to Find All ToDo List Details", 500, null)
+                    res.send(apiResponse)
+                } else if(check.isEmpty(todoList)){
+                    logger.error("No ToDo List Found", " toDoController: getSingleToDoList", 8)
+                    let apiResponse = response.generate(true, "No ToDo List Found", 404, null)
+                    res.send(apiResponse)
+                } else {
+                    let apiResponse = response.generate(false, "ToDo List Found", 200, todoList)
+                    res.send(apiResponse)
+                }
+            })
+    }
+} // end get single todoList
+
 let editUserToDoList =(req, res)=>{
     let options = {
         listName: req.body.listName,
@@ -1030,6 +1052,7 @@ module.exports = {
 
     createToDo: createToDo,
     getAllUserCreatedList: getAllUserCreatedList,
+    getSingleToDoList: getSingleToDoList,
     editUserToDoList: editUserToDoList,
     deleteUserToDoList: deleteUserToDoList,
     createListTask: createListTask,

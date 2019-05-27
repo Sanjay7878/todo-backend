@@ -288,6 +288,47 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/get/todo",
+    "title": "Get Single ToDo List",
+    "version": "0.0.1",
+    "group": "ToDo",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "listId",
+            "description": "<p>listId of the ToDo List. (body params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n\"error\": false,\n\"message\": \"ToDo List Found\",\n\"status\": 200,\n\"data\": {\n                \"listName\": \"string\",\n                \"createdBy\": \"string\",\n                \"modifiedOn\": \"date\",\n                \"createdOn\": \"date\",\n                \"visibility\": \"string\",\n                \"listId\": \"string\",\n                \"userId\": \"string\"\n            }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\"error\": true,\n\"message\": \"No ToDo List Found\",\n\"status\": 404,\n\"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/toDo.js",
+    "groupTitle": "ToDo",
+    "name": "GetHttpTodoSanjayinfotechyComApiV1TodoGetTodo"
+  },
+  {
+    "type": "get",
     "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/get/todo/history",
     "title": "Get All History Of A Particular ToDo List",
     "version": "0.0.1",

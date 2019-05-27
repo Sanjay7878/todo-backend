@@ -83,6 +83,40 @@ module.exports.setRouter = (app) =>  {
         * }
      */
 
+    //params: listId
+    app.get(`${baseUrl}/get/todo`, toDoController.getSingleToDoList)
+    /**
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/toDo/get/todo Get Single ToDo List
+     * @apiVersion 0.0.1
+     * @apiGroup ToDo
+     * 
+     * @apiParam {string} listId listId of the ToDo List. (body params) (required)
+     * 
+        * @apiSuccessExample {json} Success-Response:
+        * {
+        * "error": false,
+        * "message": "ToDo List Found",
+        * "status": 200,
+        * "data": {
+                "listName": "string",
+                "createdBy": "string",
+                "modifiedOn": "date",
+                "createdOn": "date",
+                "visibility": "string",
+                "listId": "string",
+                "userId": "string"
+            }
+        * }
+        * 
+        * @apiErrorExample {json} Error-Response:
+        * 
+        * {
+        * "error": true,
+        * "message": "No ToDo List Found",
+        * "status": 404,
+        * "data": null
+        * }
+     */
 
     //params: listId, listName, visibility(public, private)
     app.put(`${baseUrl}/edit/todolist`, toDoController.editUserToDoList)
