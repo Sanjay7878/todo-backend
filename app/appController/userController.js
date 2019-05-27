@@ -328,7 +328,7 @@ let deleteUser = (req, res)=>{
 } // end delete user
 
 let editUser = (req, res)=>{
-    let options = req.body
+    let options = req.body || req.params || req.query
     UserModel.update({userId: req.body.userId}, options, {multi: true}, (err, result)=>{
         if(err) {
             console.log(err)
