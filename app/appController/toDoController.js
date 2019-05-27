@@ -89,8 +89,8 @@ let createToDo = (req, res)=>{
 } // end create to do
 
 let getAllUserCreatedList = (req, res)=>{
-    if(req.body.userId){
-        ToDoModel.find({userId: req.query.userId || req.body.userId})
+    if(req.body.userId || req.query.userId){
+        ToDoModel.find({userId: req.body.userId || req.query.userId})
             .select("-__v -_id")
             .lean()
             .exec((err, allTasks)=>{
