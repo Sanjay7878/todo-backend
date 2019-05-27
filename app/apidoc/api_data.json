@@ -863,54 +863,6 @@
     "name": "PutHttpTodoSanjayinfotechyComApiV1TodoEditTodolist"
   },
   {
-    "type": "delete",
-    "url": "http://todo.sanjayinfotechy.com/api/v1/user/delete/user",
-    "title": "Api to delete user details",
-    "version": "0.0.1",
-    "group": "Users",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "userId",
-            "description": "<p>userId of the user whose info is needed</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "authToken",
-            "description": "<p>The token for authentication</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n\"error\": false,\n\"message\": \"Deleted the user successfully\",\n\"status\": 200,\n\"data\": { \n      \"n\": 1,\n                \"ok\": 1,\n                \"deletedCount\": 1\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "\n{\n\"error\": true,\n\"message\": \"No user Found\",\n\"status\": 404,\n\"data\": null\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "routes/routes.js",
-    "groupTitle": "Users",
-    "name": "DeleteHttpTodoSanjayinfotechyComApiV1UserDeleteUser"
-  },
-  {
     "type": "get",
     "url": "http://todo.sanjayinfotechy.com/api/v1/user/get/all",
     "title": "Get All Users",
@@ -1046,6 +998,54 @@
     "filename": "routes/routes.js",
     "groupTitle": "Users",
     "name": "PostHttpTodoSanjayinfotechyComApiV1UserChangePassword"
+  },
+  {
+    "type": "post",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/user/delete/user",
+    "title": "Api to delete user details",
+    "version": "0.0.1",
+    "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userId of the user whose info is needed</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>The token for authentication</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n\"error\": false,\n\"message\": \"Deleted the user successfully\",\n\"status\": 200,\n\"data\": { \n      \"n\": 1,\n                \"ok\": 1,\n                \"deletedCount\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\"error\": true,\n\"message\": \"No user Found\",\n\"status\": 404,\n\"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/routes.js",
+    "groupTitle": "Users",
+    "name": "PostHttpTodoSanjayinfotechyComApiV1UserDeleteUser"
   },
   {
     "type": "post",

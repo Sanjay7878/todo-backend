@@ -198,7 +198,7 @@ module.exports.setRouter = (app) =>  {
     //params: userId, authToken
     app.post(`${baseUrl}/delete/user`, auth.isAuthorized, userController.deleteUser)
     /**
-     * @api {delete} http://todo.sanjayinfotechy.com/api/v1/user/delete/user Api to delete user details
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/user/delete/user Api to delete user details
      * @apiVersion 0.0.1
      * @apiGroup Users
      * 

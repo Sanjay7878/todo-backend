@@ -290,7 +290,7 @@ let getAllUsers = (req,res)=>{
 } // end get all users
 
 let getSingleUser = (req,res)=>{
-    UserModel.findOne({userId: req.body.userId})
+    UserModel.findOne({userId: req.body.userId || req.query.userId})
         .select('-__v -_id -password')
         .exec((err, result)=>{
             if (err) {
