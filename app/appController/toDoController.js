@@ -336,8 +336,8 @@ let createListTask = (req, res)=>{
 } // end create list Task
 
 let getAllListTasks = (req, res)=>{
-    if(req.body.listId){
-        TaskModel.find({listId: req.body.listId})
+    if(req.body.listId || req.query.listId){
+        TaskModel.find({listId: req.body.listId || req.query.listId})
             .select('-__v -_id')
             .lean()
             .exec((err, listDetails)=>{
