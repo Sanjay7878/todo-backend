@@ -451,29 +451,29 @@ let editListTask = (req, res) =>{
 
 let changeTaskStatus = (req, res)=>{
 
-    let findList = ()=>{
+    let findTask = ()=>{
         return new Promise((resolve, reject)=>{
-            ToDoModel.findOne({listId: req.body.listId}, (err, listDetails)=>{
+            TaskModel.findOne({taskId: req.body.taskId}, (err, taskDetails)=>{
                 if(err){
                     logger.error(err, "toDoController: changeTaskStatus, findList", 6)
                     let apiResponse = response.generate(true, "Failed to Find ToDo List Details", 500, null)
                     reject(apiResponse)
-                } else if(check.isEmpty(listDetails)){
-                    logger.error("No ToDo List Found", "toDoController: changeTaskStatus, findList", 6)
-                    let apiResponse = response.generate(true, "No ToDo List Found", 404, null)
+                } else if(check.isEmpty(taskDetails)){
+                    logger.error("No ToDo Task Found", "toDoController: changeTaskStatus, findList", 6)
+                    let apiResponse = response.generate(true, "No ToDo Task Found", 404, null)
                     reject(apiResponse)
                 } else {
-                    resolve(listDetails)
+                    resolve(taskDetails)
                 }
             })
         })
     } // end findlist
 
-    let changeStatus = (listDetails)=>{
+    let changeStatus = (taskDetails)=>{
         return new Promise((resolve, reject)=>{
             let newHistory = new HistoryModel({
                 historyId: shortid.generate(),
-                toDoListID: listDetails.listId,
+                toDoListID: taskDetails.listId,
                 action: 'Task Status Changed',
                 taskId: req.body.taskId,
                 editStatus: req.body.status,
@@ -503,7 +503,7 @@ let changeTaskStatus = (req, res)=>{
         })
     } // end change status
 
-    findList(req, res)
+    findTask(req, res)
         .then(changeStatus)
         .then((resolve)=>{
             let apiResponse = response.generate(false, "Task Status Updated", 200, resolve)
