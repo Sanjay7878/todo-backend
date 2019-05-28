@@ -690,8 +690,8 @@ let createSubTask = (req, res)=>{
 } // end create list Task
 
 let getAllSubTasks = (req, res)=>{
-    if(req.body.taskId){
-        SubTaskModel.find({taskId: req.body.taskId})
+    if(req.body.taskId || req.query.taskId){
+        SubTaskModel.find({taskId: req.body.taskId || req.query.taskId})
             .select('-__v -_id')
             .lean()
             .exec((err, subTaskDetails)=>{
