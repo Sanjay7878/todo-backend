@@ -211,7 +211,7 @@ let getAllNonFriends = (req, res)=>{
                         let apiResponse = response.generate(true, `Failed to Find Friends`, 500, null)
                         reject(apiResponse)
                     }else {
-                        if(check.isEmpty(userFriends.friends)){
+                        if(userFriends.friends.length === 0){
                             resolve(userFriends)
                         }else {
                             resolve(userFriends.friends)
