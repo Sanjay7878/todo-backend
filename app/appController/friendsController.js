@@ -206,12 +206,12 @@ let getAllNonFriends = (req, res)=>{
                 .select('-__v -_id -password')
                 .lean()
                 .exec((err, userFriends)=>{
+                    console.log(userFriends.friends.length)
                     if(err){
                         logger.error(err.message, ' friendsController: getAllNonFriends, findFriends', 5)
                         let apiResponse = response.generate(true, `Failed to Find Friends`, 500, null)
                         reject(apiResponse)
                     }else {
-                        console.log(userFriends.friends.length)
                         if(userFriends.friends.length !== 0){
                             resolve(userFriends.friends)
                         }else {
