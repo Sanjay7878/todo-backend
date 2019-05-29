@@ -1068,10 +1068,10 @@ let setServer = (server) =>{
     eventEmitter.on('undo-subtask-status', (history)=>{
         let options = {}
         if(history.editSubTaskStatus === "done" && history.used === true){
-            options.status= 'open',
+            options.subTaskStatus= 'open',
             options.subTaskModifiedOn= time.now()    
         } else {
-            options.status= 'done',
+            options.subTaskStatus= 'done',
             options.subTaskModifiedOn= time.now()  
         }
         SubTaskModel.updateOne({subTaskId: history.subTaskId}, options, {multi: true}, (err, result)=>{
