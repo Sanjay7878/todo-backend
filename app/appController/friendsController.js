@@ -236,7 +236,6 @@ let getAllNonFriends = (req, res)=>{
                 .lean()
                 .skip(parseInt(req.body.skip) || 0)
                 .exec((err, allUsers)=>{
-                    console.log(userFriends)
                     if(err){
                         logger.error(err.message, ' friendsController: getAllNonFriends, findNonFriendsId', 5)
                         let apiResponse = response.generate(true, `Failed to Find user`, 500, null)
@@ -257,6 +256,7 @@ let getAllNonFriends = (req, res)=>{
                                     userids.splice(currentUserIndex, 1)
                                 }
                             }
+                            console.log(userids)
                             resolve(userids)
                         } else{
                             for(let i=0; i<allUsers.length; i++){
