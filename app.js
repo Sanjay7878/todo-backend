@@ -16,7 +16,7 @@ const routeLoggerMiddleware = require('./app/middleware/routeLogger')
 const logger = require('./app/libs/logger')
 
 app.use(bodyParser.json(true))
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser())
 app.use(globalErrorMiddleware.globalErrorHandler)
 app.use(routeLoggerMiddleware.logIp)
