@@ -1,6 +1,6 @@
 const socket = io("http://localhost:3000")
 
-const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RpZCI6Im5RSTFkbTlRRyIsImlhdCI6MTU1ODYxMzI4NzE0NywiZXhwIjoxNTU4Njk5Njg3LCJzdWIiOiJhdXRoVG9rZW4iLCJpc3MiOiJlZENoYXQiLCJkYXRhIjp7ImZpcnN0TmFtZSI6InNhbmpheSIsImxhc3ROYW1lIjoiYyIsImNvdW50cnkiOiJJbmRpYSIsImNvdW50cnlDb2RlIjoiKzkxIiwibW9iaWxlTnVtYmVyIjoxMjM0NTYsInVzZXJJZCI6ImFKblUtOE9DRCIsImVtYWlsIjoic2FuamF5LnNhbjc4NzhAZ21haWwuY29tIiwiZnJpZW5kcyI6W119fQ.t4f9x4traqI5PZCBhSIej7LSl2d6GL2NkCiSHy0cukI"
+const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RpZCI6IlVkbEJtWmltOSIsImlhdCI6MTU1OTExNjY4ODMwOCwiZXhwIjoxNTU5MjAzMDg4LCJzdWIiOiJhdXRoVG9rZW4iLCJpc3MiOiJlZENoYXQiLCJkYXRhIjp7ImZpcnN0TmFtZSI6InNhbmpheSIsImxhc3ROYW1lIjoiYyIsImNvdW50cnkiOiJJbmRpYSIsImNvdW50cnlDb2RlIjoiKzkxIiwibW9iaWxlTnVtYmVyIjoxMjM0NTYsInVzZXJJZCI6ImFKblUtOE9DRCIsImVtYWlsIjoic2FuamF5LnNhbjc4NzhAZ21haWwuY29tIiwiZnJpZW5kcyI6W3siZnJpZW5kSWQiOiJxdklyX1pFUFAiLCJmcmllbmROYW1lIjoiTXVuaSBSYWp1IiwiZW1haWwiOiJtdW5pQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjMyNTQ1NCIsInJlcXVlc3RTdGF0dXMiOiJwZW5kaW5nIiwibW9kaWZpZWRPbiI6IjIwMTktMDUtMjNUMTI6NTA6MjkuMDAwWiIsIl9pZCI6IjVjZTY5NzE2NTRkNWI1MmYzY2VhN2Q4NSJ9XX19.TN6X5LUclNzBAUrNhx6nY3TgrT-IkFOMLg9lN0sO6Dw"
 
 const userId = "aJnU-8OCD"
 
@@ -13,12 +13,12 @@ let friend = {
 }
 let editedToDoId = 'o4DWsYoN6'
 
-let createHistoryId = "UkBuGzSLBl"
+let createTaskId = "vMcpBdXfNh"
 let editTaskHistory = "qkPSx_PBD"
 let changeStatusHistory = "m02doe2MO"
 let deleteTaskHistory = "1o9ay3DiA"
 
-let createSubTaskHistoryId = "V031bx8zjq"
+let createSubTaskHistoryId = "fsoprHQRvX"
 let editSubTaskHistory = "6oy87a6gp"
 let changeSubTaskStatusHistory = "qsFl_7zZz"
 let deleteSubTaskTaskHistory = "QVj26mN6j"
@@ -48,7 +48,7 @@ let chatSocket =() =>{
     })
 
     $('#undoTask').on('click', ()=>{
-        socket.emit('undoTask', createHistoryId)
+        socket.emit('undoTask', createTaskId)
     })
 
     $('#undoTaskEdit').on('click', ()=>{

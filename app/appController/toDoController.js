@@ -1012,7 +1012,7 @@ let getALLToDoHistory = (req, res) =>{
     let findHistory = (listDetails)=>{
         return new Promise((resolve, reject)=>{
             HistoryModel.find({toDoListID: listDetails.listId})
-                .sort({createdOn: -1})
+                .sort({modifiedOn: 1})
                 .select('-__v -_id')
                 .lean()
                 .exec((err, historyDetails)=>{
@@ -1027,12 +1027,12 @@ let getALLToDoHistory = (req, res) =>{
                     } else {
                         if(historyDetails.createdOn == historyDetails.modifiedOn){
                             resolve(historyDetails)
-                        } else{
+                        } else {
                             HistoryModel.find({toDoListID: listDetails.listId})
-                            .sort({modifiedOn: -1})
+                            .sort({modifiedOn: 1})
                             .select('-__v -_id')
-                            .exec((err, historyDetails)=>{
-                                resolve(historyDetails)
+                            .exec((err, history)=>{
+                                resolve(history)
                             })
                         }
                         
