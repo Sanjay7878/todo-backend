@@ -92,6 +92,8 @@ let getAllUserCreatedList = (req, res)=>{
     if(req.body.userId || req.query.userId){
         ToDoModel.find({userId: req.body.userId || req.query.userId})
             .select("-__v -_id")
+            .skip(parseInt(req.body.skip) || 0)
+            .limit(5)
             .lean()
             .exec((err, allTasks)=>{
                 if(err){
@@ -292,10 +294,10 @@ let createListTask = (req, res)=>{
                     taskCreatedOn: time.now(),
                     taskModifiedOn: time.now()
                 })
-
+                let historyId = shortid.generate()
                 let newHistory = new HistoryModel({
-                    historyId: shortid.generate(),
-                    action: 'New Task Created',
+                    historyId: historyId,
+                    action: `New Task Created for ${historyId}`,
                     toDoListID: req.body.listId,
                     taskId: taskId,
                     taskName : req.body.taskName,
@@ -310,6 +312,7 @@ let createListTask = (req, res)=>{
                         let apiResponse = response.generate(true, "Failed To Save Task Details" , 500, null)
                         reject(apiResponse)
                     } else {
+                        console.log(newHistory)
                         newHistory.save()
                         let toDoTaskObj = result.toObject()
                         resolve(toDoTaskObj)
@@ -1024,6 +1027,11 @@ let getALLToDoHistory = (req, res) =>{
                         let apiResponse = response.generate(true, "No History Found", 404, null)
                         reject(apiResponse)
                     } else {
+                        for(let history of historyDetails){
+                            let actionId = history.action.split(' ')
+                            console.log(actionId[actionId.length -1])
+                            console.log(actionId.subStr)
+                        }
                        resolve(historyDetails)
                     }
                 })

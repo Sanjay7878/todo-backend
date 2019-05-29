@@ -90,7 +90,8 @@ module.exports.setRouter = (app) =>  {
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
-     * @apiParam {string} listId listId of the ToDo List. (body params) (required)
+     * @apiParam {string} skip skip count. (query params) (required)
+     * @apiParam {string} listId listId of the ToDo List. (query params) (required)
      * 
         * @apiSuccessExample {json} Success-Response:
         * {
@@ -222,14 +223,15 @@ module.exports.setRouter = (app) =>  {
         * }
      */
 
-    //params: listId
+    //params: listId, skip
     app.get(`${baseUrl}/all/todo/tasks`, toDoController.getAllListTasks)
     /**
      * @api {get} http://todo.sanjayinfotechy.com/api/v1/toDo/all/todo/tasks Get All Task Of A ToDo List
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
-     * @apiParam {string} listId listId of the toDo list. (body params) (required)
+     * @apiParam {string} skip skip count. (query params) (required)
+     * @apiParam {string} listId listId of the toDo list. (query params) (required)
      * 
         * @apiSuccessExample {json} Success-Response:
         * {
@@ -395,14 +397,15 @@ module.exports.setRouter = (app) =>  {
         * }
      */
 
-    //params: taskId
+    //params: taskId, skip
     app.get(`${baseUrl}/get/sub/tasks`, toDoController.getAllSubTasks)
     /**
      * @api {get} http://todo.sanjayinfotechy.com/api/v1/toDo/get/sub/tasks Get All Sub-Tasks Of A Particaular Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
-     * @apiParam {string} taskId taskId of the toDo task. (body params) (required)
+     * @apiParam {string} taskId taskId of the toDo task. (query params) (required)
+     * @apiParam {string} skip skip count. (query params) (required)
      * 
         * @apiSuccessExample {json} Success-Response:
         * {
@@ -535,7 +538,7 @@ module.exports.setRouter = (app) =>  {
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
-     * @apiParam {string} listId listId of the ToDo List. (body params) (required)
+     * @apiParam {string} listId listId of the ToDo List. (query params) (required)
      * 
         * @apiSuccessExample {json} Success-Response:
         * {

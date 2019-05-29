@@ -13,7 +13,7 @@
             "type": "string",
             "optional": false,
             "field": "userId",
-            "description": "<p>userId of the user. (body params) (required)</p>"
+            "description": "<p>userId of the user. (query params) (required)</p>"
           }
         ]
       }
@@ -54,7 +54,7 @@
             "type": "string",
             "optional": false,
             "field": "userId",
-            "description": "<p>userId of the user. (body params) (required)</p>"
+            "description": "<p>userId of the user. (query params) (required)</p>"
           }
         ]
       }
@@ -95,7 +95,7 @@
             "type": "string",
             "optional": false,
             "field": "userId",
-            "description": "<p>userId of the user. (body params) (required)</p>"
+            "description": "<p>userId of the user. (query params) (required)</p>"
           }
         ]
       }
@@ -124,6 +124,88 @@
   },
   {
     "type": "get",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/friends/get/received/notifications",
+    "title": "Get All Users received Notifications",
+    "version": "0.0.1",
+    "group": "Friends",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userId of the user. (query params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n\"error\": false,\n\"message\": \"All User Received Notifications Found\",\n\"status\": 200,\n\"data\": [\n                    {\n                        \"senderId\": \"string\",\n                        \"receiverId\": \"string\",\n                        \"message\": \"string\",\n                        \"seen\": boolean,\n                        \"_id\": \"string\",\n                        \"notificationId\": \"string\",\n                        \"notifiedOn\": \"date\",\n                        \"__v\": 0\n                    },\n                    .........\n                ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\"error\": false,\n\"message\": \"No User Notifications Found,\n\"status\": 404,\n\"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/friends.js",
+    "groupTitle": "Friends",
+    "name": "GetHttpTodoSanjayinfotechyComApiV1FriendsGetReceivedNotifications"
+  },
+  {
+    "type": "get",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/friends/get/received/notifications",
+    "title": "Get All Users received Notifications",
+    "version": "0.0.1",
+    "group": "Friends",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userId of the user. (query params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n\"error\": false,\n\"message\": \"All User Sent Notifications Found\",\n\"status\": 200,\n\"data\": [\n                    {\n                        \"senderId\": \"string\",\n                        \"receiverId\": \"string\",\n                        \"message\": \"string\",\n                        \"seen\": boolean,\n                        \"_id\": \"string\",\n                        \"notificationId\": \"string\",\n                        \"notifiedOn\": \"date\",\n                        \"__v\": 0\n                    },\n                    .........\n                ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\"error\": false,\n\"message\": \"No User Notifications Found\",\n\"status\": 404,\n\"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/friends.js",
+    "groupTitle": "Friends",
+    "name": "GetHttpTodoSanjayinfotechyComApiV1FriendsGetReceivedNotifications"
+  },
+  {
+    "type": "get",
     "url": "http://todo.sanjayinfotechy.com/api/v1/friends/get/sent-requests",
     "title": "Get All Particular User Sent Requests",
     "version": "0.0.1",
@@ -136,7 +218,7 @@
             "type": "string",
             "optional": false,
             "field": "userId",
-            "description": "<p>userId of the user. (body params) (required)</p>"
+            "description": "<p>userId of the user. (query params) (required)</p>"
           }
         ]
       }
@@ -176,8 +258,15 @@
             "group": "Parameter",
             "type": "string",
             "optional": false,
+            "field": "skip",
+            "description": "<p>skip count. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
             "field": "listId",
-            "description": "<p>listId of the toDo list. (body params) (required)</p>"
+            "description": "<p>listId of the toDo list. (query params) (required)</p>"
           }
         ]
       }
@@ -259,7 +348,14 @@
             "type": "string",
             "optional": false,
             "field": "taskId",
-            "description": "<p>taskId of the toDo task. (body params) (required)</p>"
+            "description": "<p>taskId of the toDo task. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "skip",
+            "description": "<p>skip count. (query params) (required)</p>"
           }
         ]
       }
@@ -299,8 +395,15 @@
             "group": "Parameter",
             "type": "string",
             "optional": false,
+            "field": "skip",
+            "description": "<p>skip count. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
             "field": "listId",
-            "description": "<p>listId of the ToDo List. (body params) (required)</p>"
+            "description": "<p>listId of the ToDo List. (query params) (required)</p>"
           }
         ]
       }
@@ -341,7 +444,7 @@
             "type": "string",
             "optional": false,
             "field": "listId",
-            "description": "<p>listId of the ToDo List. (body params) (required)</p>"
+            "description": "<p>listId of the ToDo List. (query params) (required)</p>"
           }
         ]
       }

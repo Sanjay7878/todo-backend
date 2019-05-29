@@ -16,7 +16,7 @@ module.exports.setRouter = (app) =>  {
      * @apiVersion 0.0.1
      * @apiGroup Friends
      * 
-     * @apiParam {string} userId userId of the user. (body params) (required)
+     * @apiParam {string} userId userId of the user. (query params) (required)
      * 
         * @apiSuccessExample {json} Success-Response:
         * {
@@ -56,7 +56,7 @@ module.exports.setRouter = (app) =>  {
      * @apiVersion 0.0.1
      * @apiGroup Friends
      * 
-     * @apiParam {string} userId userId of the user. (body params) (required)
+     * @apiParam {string} userId userId of the user. (query params) (required)
      * 
         * @apiSuccessExample {json} Success-Response:
         * {
@@ -96,7 +96,7 @@ module.exports.setRouter = (app) =>  {
      * @apiVersion 0.0.1
      * @apiGroup Friends
      * 
-     * @apiParam {string} userId userId of the user. (body params) (required)
+     * @apiParam {string} userId userId of the user. (query params) (required)
      * 
         * @apiSuccessExample {json} Success-Response:
         * {
@@ -136,7 +136,7 @@ module.exports.setRouter = (app) =>  {
      * @apiVersion 0.0.1
      * @apiGroup Friends
      * 
-     * @apiParam {string} userId userId of the user. (body params) (required)
+     * @apiParam {string} userId userId of the user. (query params) (required)
      * 
         * @apiSuccessExample {json} Success-Response:
         * {
@@ -171,8 +171,80 @@ module.exports.setRouter = (app) =>  {
     
      // params: userId
      app.get(`${baseUrl}/get/received/notifications`, notificationController.getAllReceivedNotifications)
+     /**
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/friends/get/received/notifications Get All Users received Notifications
+     * @apiVersion 0.0.1
+     * @apiGroup Friends
+     * 
+     * @apiParam {string} userId userId of the user. (query params) (required)
+     * 
+        * @apiSuccessExample {json} Success-Response:
+        * {
+        * "error": false,
+        * "message": "All User Received Notifications Found",
+        * "status": 200,
+        * "data": [
+                    {
+                        "senderId": "string",
+                        "receiverId": "string",
+                        "message": "string",
+                        "seen": boolean,
+                        "_id": "string",
+                        "notificationId": "string",
+                        "notifiedOn": "date",
+                        "__v": 0
+                    },
+                    .........
+                ]
+        * }
+        * 
+        * @apiErrorExample {json} Error-Response:
+        * 
+        * {
+        * "error": false,
+        * "message": "No User Notifications Found,
+        * "status": 404,
+        * "data": null
+        * }
+     */
 
      //params: userId
      app.get(`${baseUrl}/get/sent/notifications`, notificationController.getAllSentNotifications)
+     /**
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/friends/get/received/notifications Get All Users received Notifications
+     * @apiVersion 0.0.1
+     * @apiGroup Friends
+     * 
+     * @apiParam {string} userId userId of the user. (query params) (required)
+     * 
+        * @apiSuccessExample {json} Success-Response:
+        * {
+        * "error": false,
+        * "message": "All User Sent Notifications Found",
+        * "status": 200,
+        * "data": [
+                    {
+                        "senderId": "string",
+                        "receiverId": "string",
+                        "message": "string",
+                        "seen": boolean,
+                        "_id": "string",
+                        "notificationId": "string",
+                        "notifiedOn": "date",
+                        "__v": 0
+                    },
+                    .........
+                ]
+        * }
+        * 
+        * @apiErrorExample {json} Error-Response:
+        * 
+        * {
+        * "error": false,
+        * "message": "No User Notifications Found",
+        * "status": 404,
+        * "data": null
+        * }
+     */
             
 } // end set Router
