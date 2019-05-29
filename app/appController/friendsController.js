@@ -251,7 +251,7 @@ let getAllNonFriends = (req, res)=>{
                                     userids.splice(currentUserIndex, 1)
                                 }
                             }
-                            resolve(allUsers)
+                            resolve(userids)
                         } else{
                             for(let i=0; i<allUsers.length; i++){
                                 userids.push(allUsers[i].userId)
