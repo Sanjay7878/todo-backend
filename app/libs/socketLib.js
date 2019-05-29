@@ -614,6 +614,7 @@ let setServer = (server) =>{
     }) // end eventemitter on send-request
 
     eventEmitter.on('recieve-request', (user)=>{
+        console.log(user)
         let receievedRequest = {
             friendId: user.friend.userId,
             friendName: user.friend.firstName+' '+user.friend.lastName,
