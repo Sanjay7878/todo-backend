@@ -212,7 +212,7 @@ let getAllNonFriends = (req, res)=>{
                         reject(apiResponse)
                     }else {
                         if(check.isEmpty(userFriends.friends)){
-                            resolve(null)
+                            resolve(userFriends)
                         }else {
                             resolve(userFriends.friends)
                         }  
@@ -239,7 +239,7 @@ let getAllNonFriends = (req, res)=>{
                         let apiResponse = response.generate(true, "No User Details Found", 404, null)
                         reject(apiResponse)
                     } else {
-                        if(userFriends === null){
+                        if(userFriends.friends.length === 0){
                             for(let i=0; i<allUsers.length; i++){
                                 userids.push(allUsers[i].userId)
                                 
