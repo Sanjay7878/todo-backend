@@ -29,6 +29,7 @@ let setServer = (server) =>{
     // on connection to socket 
     myIo.on('connection', (socket)=>{
 
+        let currentUserId;
         /**
          * @api {listen} /verify-user Verification the init user
          * @apiVersion 0.0.1
@@ -61,7 +62,7 @@ let setServer = (server) =>{
                     console.log("User Verified")
                     let currentUser = user.data;
 
-                    socket.userId = currentUser.userId
+                    currentUserId = currentUser.userId
                     let fullName  = `${currentUser.firstName} ${currentUser.lastName}`
                     let key = currentUser.userId
                     let value = fullName
@@ -125,8 +126,8 @@ let setServer = (server) =>{
         */
         /**Events For Friend Requests */
         socket.on('send-friend-request', (data)=>{
-            data['currentUser'] = socket.userId 
-            console.log(socket.userId)
+            data['currentUser'] = currentUserId
+            console.log(currentUserId)
             setTimeout(()=>{
                 eventEmitter.emit('send-request', data)
             }, 2000)
