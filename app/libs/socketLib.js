@@ -1070,7 +1070,7 @@ let setServer = (server) =>{
         if(history.editSubTaskStatus === "done" && history.used === true){
             options.status= 'open',
             options.subTaskModifiedOn= time.now()    
-        } else if(history.editSubTaskStatus === "open" && history.used === false){
+        } else {
             options.status= 'done',
             options.subTaskModifiedOn= time.now()  
         }
