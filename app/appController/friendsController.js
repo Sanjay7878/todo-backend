@@ -211,19 +211,24 @@ let getAllNonFriends = (req, res)=>{
                         let apiResponse = response.generate(true, `Failed to Find Friends`, 500, null)
                         reject(apiResponse)
                     }else {
-                        if(check.isEmpty(userFriends.friends)){
-                            resolve(userFriends)
+                        if(userFriends.friends.length === 0){
+                            resolve()
                         }else {
                             resolve(userFriends.friends)
-                        }
+                        }  
+                        /*
+                        for(let friends of result){
+                            for(let friendDetails of friends.friends){
+                                
+                            }
+                        }*/
                     }
                 })
         })  
     } // end find requests
 
-    let findNonFriendsId = (user)=>{
+    let findNonFriendsId = (userFriends)=>{
         return new Promise((resolve, reject)=>{
-            let userFriends = user
             let userids = []
             let allUserFriends = []
             UserModel.find()
@@ -231,6 +236,7 @@ let getAllNonFriends = (req, res)=>{
                 .lean()
                 .skip(parseInt(req.body.skip) || 0)
                 .exec((err, allUsers)=>{
+                    console.log(userFriends)
                     if(err){
                         logger.error(err.message, ' friendsController: getAllNonFriends, findNonFriendsId', 5)
                         let apiResponse = response.generate(true, `Failed to Find user`, 500, null)
