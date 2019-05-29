@@ -579,6 +579,7 @@ let setServer = (server) =>{
                     if(err){
                         console.log(err)
                     } else {
+                        console.log(data)
                         let friend = {
                             user: data.friendId,
                             friend: userDetails
@@ -614,7 +615,6 @@ let setServer = (server) =>{
     }) // end eventemitter on send-request
 
     eventEmitter.on('recieve-request', (user)=>{
-        console.log(user)
         let receievedRequest = {
             friendId: user.friend.userId,
             friendName: user.friend.firstName+' '+user.friend.lastName,
