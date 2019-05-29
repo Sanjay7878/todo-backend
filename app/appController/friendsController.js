@@ -251,12 +251,11 @@ let getAllNonFriends = (req, res)=>{
                                 
                             }
                             for(let userid of userids){
-                                if(userid === req.body.userId){
-                                    let currentUserIndex = userids.indexOf(req.body.userId)
+                                if(userid === req.body.userId || req.query.userId){
+                                    let currentUserIndex = userids.indexOf(userid)
                                     userids.splice(currentUserIndex, 1)
                                 }
                             }
-                            console.log(userids)
                             resolve(userids)
                         } else{
                             for(let i=0; i<allUsers.length; i++){
@@ -266,13 +265,13 @@ let getAllNonFriends = (req, res)=>{
 
                             for(let j=0; j<userFriends.length; j++){
                                 allUserFriends.push(userFriends[j].friendId)
-                                allUserFriends.push(req.body.userId)
+                                allUserFriends.push(req.body.userId || req.query.userId)
                             }
                             
                             for( let k=0; k<allUserFriends.length; k++){
                                 for(let userid of userids){
                                     if(userid === allUserFriends[k]){
-                                        let currentUserIndex = userids.indexOf(req.body.userId)
+                                        let currentUserIndex = userids.indexOf(userid)
                                         userids.splice(currentUserIndex, 1)
                                     }
                                 }
