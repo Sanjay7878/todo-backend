@@ -532,6 +532,13 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
+            "field": "taskId",
+            "description": "<p>TaskId of that Task (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
             "field": "subTaskId",
             "description": "<p>subTaskId of the Sub-Task. (body params) (required)</p>"
           }
@@ -662,6 +669,13 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
+            "field": "taskId",
+            "description": "<p>taskId of that Task (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
             "field": "subTaskId",
             "description": "<p>subTaskId of the Sub-Task. (body params) (required)</p>"
           },
@@ -754,6 +768,13 @@ define({ "api": [
     "parameter": {
       "fields": {
         "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "taskId",
+            "description": "<p>taskId of that Task (body params) (required)</p>"
+          },
           {
             "group": "Parameter",
             "type": "string",

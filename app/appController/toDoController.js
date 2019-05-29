@@ -987,7 +987,7 @@ let deleteSubTask = (req, res) =>{
 let getALLToDoHistory = (req, res) =>{
     let findList = ()=>{
         return new Promise((resolve, reject)=>{
-            ToDoModel.findOne({listId: req.body.listId}, (err, listDetails)=>{
+            ToDoModel.findOne({listId: req.body.listId || req.query.listId}, (err, listDetails)=>{
                 if(err){
                     logger.error(err, "toDoController: getALLToDoHistory, findList", 6)
                     let apiResponse = response.generate(true, "Failed to Find ToDo List Details", 500, null)

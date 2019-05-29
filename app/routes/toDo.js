@@ -437,6 +437,7 @@ module.exports.setRouter = (app) =>  {
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
+     * @apiParam {string} taskId taskId of that Task (body params) (required)
      * @apiParam {string} subTaskId subTaskId of the Sub-Task. (body params) (required)
      * @apiParam {string} subTaskName sub-task name of the Sub-Task (body params) (required)
      * 
@@ -469,6 +470,7 @@ module.exports.setRouter = (app) =>  {
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
+     * @apiParam {string} taskId taskId of that Task (body params) (required)
      * @apiParam {string} subTaskId subTaskId of the Sub-Task. (body params) (required)
      * @apiParam {string} status status name of the Sub-Task (open or done) (body params) (required)
      * 
@@ -494,13 +496,14 @@ module.exports.setRouter = (app) =>  {
         * }
      */
 
-    //params: subTaskId
+    //params: subTaskId, taskId
     app.post(`${baseUrl}/delete/sub/task`, toDoController.deleteSubTask)
     /**
      * @api {post} http://todo.sanjayinfotechy.com/api/v1/toDo/delete/sub/task Delete A Particular Sub-Task
      * @apiVersion 0.0.1
      * @apiGroup ToDo
      * 
+     * @apiParam {string} taskId TaskId of that Task (body params) (required)
      * @apiParam {string} subTaskId subTaskId of the Sub-Task. (body params) (required)
      * 
         * @apiSuccessExample {json} Success-Response:
