@@ -1027,9 +1027,9 @@ let getALLToDoHistory = (req, res) =>{
                     } else {
                         if(historyDetails.createdOn == historyDetails.modifiedOn){
                             resolve(historyDetails)
-                        } else {
+                        } else{
                             HistoryModel.find({toDoListID: listDetails.listId})
-                            .sort({modifiedOn: 1})
+                            .sort({modifiedOn: -1})
                             .select('-__v -_id')
                             .exec((err, historyDetails)=>{
                                 resolve(historyDetails)
