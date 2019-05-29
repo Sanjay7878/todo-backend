@@ -125,8 +125,8 @@ let setServer = (server) =>{
         */
         /**Events For Friend Requests */
         socket.on('send-friend-request', (data)=>{
-            console.log(socket.userId)
             data['currentUser'] = socket.userId 
+            console.log(data)
             setTimeout(()=>{
                 eventEmitter.emit('send-request', data)
             }, 2000)
@@ -579,7 +579,6 @@ let setServer = (server) =>{
                     if(err){
                         console.log(err)
                     } else {
-                        console.log(data)
                         let friend = {
                             user: data.friendId,
                             friend: userDetails
