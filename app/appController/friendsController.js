@@ -252,7 +252,7 @@ let getAllNonFriends = (req, res)=>{
                             }
                             for(let userid of userids){
                                 if(userid === req.body.userId){
-                                    let currentUserIndex = userids.indexOf(userid)
+                                    let currentUserIndex = userids.indexOf(req.body.userId)
                                     userids.splice(currentUserIndex, 1)
                                 }
                             }
@@ -272,7 +272,7 @@ let getAllNonFriends = (req, res)=>{
                             for( let k=0; k<allUserFriends.length; k++){
                                 for(let userid of userids){
                                     if(userid === allUserFriends[k]){
-                                        let currentUserIndex = userids.indexOf(userid)
+                                        let currentUserIndex = userids.indexOf(req.body.userId)
                                         userids.splice(currentUserIndex, 1)
                                     }
                                 }
