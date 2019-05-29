@@ -14,7 +14,7 @@ let getAllFriendRequests = (req, res)=>{
 
     let findUser = ()=>{
         return new Promise((resolve, reject)=>{
-            UserModel.findOne({userId: req.body.userId || req.query.userId}, (err, userDetails)=>{
+            UserModel.findOne({userId: req.query.userId}, (err, userDetails)=>{
                 if(err){
                     logger.error(err.message, ' friendsController: getAllFriendRequests, findUser', 5)
                     let apiResponse = response.generate(true, `Failed to Find User`, 500, null)
@@ -78,7 +78,7 @@ let getAllSentRequested = (req, res)=>{
 
     let findUser = ()=>{
         return new Promise((resolve, reject)=>{
-            UserModel.findOne({userId: req.body.userId || req.query.userId}, (err, userDetails)=>{
+            UserModel.findOne({userId: req.query.userId}, (err, userDetails)=>{
                 if(err){
                     logger.error(err.message, ' friendsController: getAllSentRequested, findUser', 5)
                     let apiResponse = response.generate(true, `Failed to Find User`, 500, null)
@@ -142,7 +142,7 @@ let getAllFriends = (req, res)=>{
 
     let findUser = ()=>{
         return new Promise((resolve, reject)=>{
-            UserModel.findOne({userId: req.body.userId || req.query.userId}, (err, userDetails)=>{
+            UserModel.findOne({userId: req.query.userId}, (err, userDetails)=>{
                 if(err){
                     logger.error(err.message, ' friendsController: getAllFriends, findUser', 5)
                     let apiResponse = response.generate(true, `Failed to Find user`, 500, null)
@@ -202,7 +202,7 @@ let getAllNonFriends = (req, res)=>{
     
     let findFriends = ()=>{
         return new Promise((resolve, reject)=>{
-            UserModel.findOne({userId: req.body.userId || req.query.userId})
+            UserModel.findOne({userId: req.query.userId})
                 .select('-__v -_id -password')
                 .lean()
                 .exec((err, userFriends)=>{
@@ -251,7 +251,7 @@ let getAllNonFriends = (req, res)=>{
                                 
                             }
                             for(let userid of userids){
-                                if(userid === req.body.userId || req.query.userId){
+                                if(userid === req.query.userId){
                                     let currentUserIndex = userids.indexOf(userid)
                                     userids.splice(currentUserIndex, 1)
                                 }
@@ -265,7 +265,7 @@ let getAllNonFriends = (req, res)=>{
 
                             for(let j=0; j<userFriends.length; j++){
                                 allUserFriends.push(userFriends[j].friendId)
-                                allUserFriends.push(req.body.userId || req.query.userId)
+                                allUserFriends.push(req.query.userId)
                             }
                             
                             for( let k=0; k<allUserFriends.length; k++){

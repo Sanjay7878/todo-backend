@@ -14,7 +14,7 @@ let getAllReceivedNotifications = (req, res) =>{
     
     let findUser = ()=>{
         return new Promise((resolve, reject)=>{
-            UserModel.findOne({userId: req.body.userId || req.query.userId}, (err, userDetails)=>{
+            UserModel.findOne({userId: req.query.userId}, (err, userDetails)=>{
                 if(err){
                     logger.error(err.message, ' friendsController: findUserNotifications, findUser', 5)
                     let apiResponse = response.generate(true, `Failed to Find User`, 500, null)
@@ -33,7 +33,7 @@ let getAllReceivedNotifications = (req, res) =>{
 
     let findNotification = () =>{
         return new Promise((resolve, reject)=>{
-            NotificationModel.find({receiverId: req.body.userId || req.query.userId}, (err, notifications)=>{
+            NotificationModel.find({receiverId: req.query.userId}, (err, notifications)=>{
                 if(err){
                     logger.error(err.message, ' friendsController: findUserNotifications, findUser', 5)
                     let apiResponse = response.generate(true, `Failed to Find User`, 500, null)
@@ -67,7 +67,7 @@ let getAllSentNotifications = (req, res)=>{
 
     let findUser = ()=>{
         return new Promise((resolve, reject)=>{
-            UserModel.findOne({userId: req.body.userId || req.query.userId}, (err, userDetails)=>{
+            UserModel.findOne({userId: req.query.userId}, (err, userDetails)=>{
                 if(err){
                     logger.error(err.message, ' friendsController: findUserNotifications, findUser', 5)
                     let apiResponse = response.generate(true, `Failed to Find User`, 500, null)
@@ -86,7 +86,7 @@ let getAllSentNotifications = (req, res)=>{
 
     let findNotification = () =>{
         return new Promise((resolve, reject)=>{
-            NotificationModel.find({senderId: req.body.userId || req.query.userId}, (err, notifications)=>{
+            NotificationModel.find({senderId: req.query.userId}, (err, notifications)=>{
                 if(err){
                     logger.error(err.message, ' friendsController: findUserNotifications, findUser', 5)
                     let apiResponse = response.generate(true, `Failed to Find User`, 500, null)
