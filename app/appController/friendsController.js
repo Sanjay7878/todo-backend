@@ -211,18 +211,19 @@ let getAllNonFriends = (req, res)=>{
                         let apiResponse = response.generate(true, `Failed to Find Friends`, 500, null)
                         reject(apiResponse)
                     }else {
-                        if(userFriends.friends.length !== 0){
-                            resolve(userFriends.friends)
-                        }else {
+                        if(check.isEmpty(userFriends.friends)){
                             resolve(userFriends)
-                        }  
+                        }else {
+                            resolve(userFriends.friends)
+                        }
                     }
                 })
         })  
     } // end find requests
 
-    let findNonFriendsId = (userFriends)=>{
+    let findNonFriendsId = (user)=>{
         return new Promise((resolve, reject)=>{
+            let userFriends = user
             let userids = []
             let allUserFriends = []
             UserModel.find()
@@ -239,7 +240,7 @@ let getAllNonFriends = (req, res)=>{
                         let apiResponse = response.generate(true, "No User Details Found", 404, null)
                         reject(apiResponse)
                     } else {
-                        if(userFriends.friends.length === 0){
+                        if(check.isEmpty(userFriends)){
                             for(let i=0; i<allUsers.length; i++){
                                 userids.push(allUsers[i].userId)
                                 
@@ -250,7 +251,7 @@ let getAllNonFriends = (req, res)=>{
                                     userids.splice(currentUserIndex, 1)
                                 }
                             }
-                            resolve(userids)
+                            resolve(allUsers)
                         } else{
                             for(let i=0; i<allUsers.length; i++){
                                 userids.push(allUsers[i].userId)

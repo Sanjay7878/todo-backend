@@ -26,7 +26,6 @@ let requestIpLogger = (req, res, next) => {
      res.header("Access-Control-Allow-Origin", appConfig.allowedOrigin);
      res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-     res.setHeader('content-type', 'text/json');
      //console.log(res.header)
      // end cors config
      
