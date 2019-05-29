@@ -118,6 +118,8 @@ let getSingleToDoList = (req, res)=>{
     if(req.body.listId || req.query.listId){
         ToDoModel.findOne({listId: req.body.listId || req.query.listId})
             .select('-__v -_id')
+            .skip(parseInt(req.body.skip) || 0)
+            .limit(5)
             .lean()
             .exec((err, todoList)=>{
                 if(err){
@@ -339,6 +341,8 @@ let getAllListTasks = (req, res)=>{
     if(req.body.listId || req.query.listId){
         TaskModel.find({listId: req.body.listId || req.query.listId})
             .select('-__v -_id')
+            .skip(parseInt(req.body.skip) || 0)
+            .limit(5)
             .lean()
             .exec((err, listDetails)=>{
                 if(err){
@@ -693,6 +697,8 @@ let getAllSubTasks = (req, res)=>{
     if(req.body.taskId || req.query.taskId){
         SubTaskModel.find({taskId: req.body.taskId || req.query.taskId})
             .select('-__v -_id')
+            .skip(parseInt(req.body.skip) || 0)
+            .limit(5)
             .lean()
             .exec((err, subTaskDetails)=>{
                 if(err){
