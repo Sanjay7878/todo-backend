@@ -471,6 +471,5 @@ module.exports = {
     editUser: editUser,
     resetPassword: resetPassword,
     sendResetPasswordLink: sendResetPasswordLink,
-    changePassword: changePassword,
-    getAllUserNotifications: getAllUserNotifications
+    changePassword: changePassword
 }
