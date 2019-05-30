@@ -834,7 +834,6 @@ let setServer = (server) =>{
                             message: `User Has Removed You As Friends`,
                             modifiedOn: time.now()
                         })
-                        console.log(notify)
                         let removeDetails = {
                             user: friendDetails.user,
                             friend: friendDetails.friend.friendId,
