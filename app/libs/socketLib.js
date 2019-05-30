@@ -28,8 +28,7 @@ let setServer = (server) =>{
 
     // on connection to socket 
     myIo.on('connection', (socket)=>{
-
-        let currentUserId;
+        let fullName;
         /**
          * @api {listen} /verify-user Verification the init user
          * @apiVersion 0.0.1
@@ -62,8 +61,8 @@ let setServer = (server) =>{
                     console.log("User Verified")
                     let currentUser = user.data;
 
-                    currentUserId = currentUser.userId
-                    let fullName  = `${currentUser.firstName} ${currentUser.lastName}`
+                    socket.userId = currentUser.userId
+                    fullName  = `${currentUser.firstName} ${currentUser.lastName}`
                     let key = currentUser.userId
                     let value = fullName
                     redisLib.setUsersInHash('onlineUsers', key, value, (err, userOnlineList)=>{
@@ -126,8 +125,8 @@ let setServer = (server) =>{
         */
         /**Events For Friend Requests */
         socket.on('send-friend-request', (data)=>{
-            data['currentUser'] = currentUserId
-            console.log(currentUserId)
+            data['currentUser'] = socket.userId 
+            data['userName']= fullName
             setTimeout(()=>{
                 eventEmitter.emit('send-request', data)
             }, 2000)
@@ -146,6 +145,7 @@ let setServer = (server) =>{
         */
         socket.on('accept-friend-request', (user)=>{
             user['currentUser'] = socket.userId 
+            user['userName']= fullName
             setTimeout(()=>{
                 eventEmitter.emit('accept-request', user)
             }, 2000)
@@ -164,7 +164,7 @@ let setServer = (server) =>{
                         }
         */
         socket.on('change-status', (statusData)=>{
-            statusData['currentUser'] = socket.userId 
+            statusData['userName'] = fullName
             setTimeout(()=>{
                 eventEmitter.emit('save-status', statusData)
             }, 2000)
@@ -182,7 +182,7 @@ let setServer = (server) =>{
                         }
         */
         socket.on('remove-friend', (friendDetails)=>{
-            friendDetails['currentUser'] = socket.userId
+            friendDetails['userName'] = fullName
             setTimeout(()=>{
                 eventEmitter.emit('delete-friend', friendDetails)
             }, 2000)
@@ -584,17 +584,17 @@ let setServer = (server) =>{
                             user: data.friendId,
                             friend: userDetails
                         }
-
                         console.log('Friend Request Send')
                         let notify = new NotificationModel({
                             notificationId: shortid.generate(),
+                            senderName: data.userName,
                             senderId: data.currentUser,
                             receiverId: data.friendId,
+                            receiverName: data.friendName,
                             message: `You Have Received A New Friend Request`,
                             notifiedOn: time.now()
                         })
-
-                        eventEmitter.emit('recieve-request', friend)
+                       eventEmitter.emit('recieve-request', friend)
 
                         setTimeout(()=>{
                             notify.save((err, newNotification)=>{
@@ -658,20 +658,27 @@ let setServer = (server) =>{
                     if(err){
                         console.log(err)
                     } else {
+                        let currentFriend;
+                        for(let friend of result.friends){
+                            if(user.friend === friend.friendId){
+                                currentFriend = friend
+                            }
+                        }
                         let userData = {
                             user: user.friend,
-                            friendDetails: result
+                            friendDetails: userDetails
                         }
                         console.log('Friend Request Accepted')
                         let notify = new NotificationModel({
                             notificationId: shortid.generate(),
                             senderId:  user.user,
+                            senderName: user.userName,
                             receiverId: user.friend,
+                            receiverName: currentFriend.friendName,
                             message: `Friend Request Has Been Accepted`,
                             modifiedOn: time.now()
                         })
 
-                        
                         setTimeout(()=>{
                             eventEmitter.emit('accepted-request', userData)
                         }, 2000)
@@ -734,7 +741,6 @@ let setServer = (server) =>{
                         friends :[friendStatus]
                     }
                 }
-
                 UserModel.findOneAndUpdate({userId: statusData.friend}, options, {multi: true}, (err, result)=>{
                     if(err){
                         console.log(err)
@@ -745,12 +751,14 @@ let setServer = (server) =>{
                             user: statusData.user,
                             friend: result
                         }
-
+                        
                         let notify = new NotificationModel({
                             notificationId: shortid.generate(),
                             senderId: statusData.user,
+                            senderName: statusData.userName,
                             receiverId: statusData.friend,
-                            message: `Friend Request Status Has Been Changed`,
+                            receiverName: result.firstName+' '+result.lastName,
+                            message: `Friend Request Status Has Been Changed To ${statusData.status}`,
                             modifiedOn: time.now()
                         })
 
@@ -810,7 +818,7 @@ let setServer = (server) =>{
                         }
                     }
                 }
-
+                console.log(friendDetails)
                 UserModel.findOneAndUpdate({userId: friendDetails.user}, options, (err, result)=>{
                     if(err){
                         console.log(err)
@@ -820,11 +828,13 @@ let setServer = (server) =>{
                         let notify = new NotificationModel({
                             notificationId: shortid.generate(),
                             senderId: friendDetails.user,
+                            senderName: friendDetails.userName,
                             receiverId: friendDetails.friend.friendId,
+                            receiverName: friendDetails.friend.friendName,
                             message: `User Has Removed You As Friends`,
                             modifiedOn: time.now()
                         })
-
+                        console.log(notify)
                         let removeDetails = {
                             user: friendDetails.user,
                             friend: friendDetails.friend.friendId,
