@@ -211,7 +211,7 @@ module.exports.setRouter = (app) =>  {
      //params: userId
      app.get(`${baseUrl}/get/sent/notifications`, notificationController.getAllSentNotifications)
      /**
-     * @api {get} http://todo.sanjayinfotechy.com/api/v1/friends/get/received/notifications Get All Users received Notifications
+     * @api {get} http://todo.sanjayinfotechy.com/api/v1/friends/get/sent/notifications Get All Users Sent Notifications
      * @apiVersion 0.0.1
      * @apiGroup Friends
      * 

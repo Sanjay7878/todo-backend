@@ -165,8 +165,8 @@
   },
   {
     "type": "get",
-    "url": "http://todo.sanjayinfotechy.com/api/v1/friends/get/received/notifications",
-    "title": "Get All Users received Notifications",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/friends/get/sent/notifications",
+    "title": "Get All Users Sent Notifications",
     "version": "0.0.1",
     "group": "Friends",
     "parameter": {
@@ -202,7 +202,7 @@
     },
     "filename": "routes/friends.js",
     "groupTitle": "Friends",
-    "name": "GetHttpTodoSanjayinfotechyComApiV1FriendsGetReceivedNotifications"
+    "name": "GetHttpTodoSanjayinfotechyComApiV1FriendsGetSentNotifications"
   },
   {
     "type": "get",
@@ -1293,47 +1293,6 @@
     "filename": "routes/routes.js",
     "groupTitle": "Users",
     "name": "PostHttpTodoSanjayinfotechyComApiV1UserForgotPassword"
-  },
-  {
-    "type": "post",
-    "url": "http://todo.sanjayinfotechy.com/api/v1/user/get/all/notifications",
-    "title": "Api to Get All User Received Norifications",
-    "version": "0.0.1",
-    "group": "Users",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "userId",
-            "description": "<p>userId of the user</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n\"error\": false,\n\"message\": \"User Notifications Found\",\n\"status\": 200,\n\"data\": {\n                  \"senderId\": \"string\",\n                  \"receiverId\": \"string\",\n                  \"message\": \"string\",\n                  \"notificationId\": \"string\",\n                  \"notifiedOn\": \"date\",\n            },\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "\n{\n\"error\": true,\n\"message\": \"No Notifications\",\n\"status\": 200,\n\"data\": null\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "routes/routes.js",
-    "groupTitle": "Users",
-    "name": "PostHttpTodoSanjayinfotechyComApiV1UserGetAllNotifications"
   },
   {
     "type": "post",

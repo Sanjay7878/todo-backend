@@ -352,38 +352,5 @@ module.exports.setRouter = (app) =>  {
         * }
      */
       
-     //params: userId
-     app.get(`${baseUrl}/get/all/notifications`, userController.getAllUserNotifications)
-     /**
-     * @api {post} http://todo.sanjayinfotechy.com/api/v1/user/get/all/notifications Api to Get All User Received Norifications
-     * @apiVersion 0.0.1
-     * @apiGroup Users
-     * 
-     * @apiParam {string} userId userId of the user 
-     *
-     * 
-        * @apiSuccessExample {json} Success-Response:
-        * {
-        * "error": false,
-        * "message": "User Notifications Found",
-        * "status": 200,
-        * "data": {
-                  "senderId": "string",
-                  "receiverId": "string",
-                  "message": "string",
-                  "notificationId": "string",
-                  "notifiedOn": "date",
-            },
-        * }
-        * 
-        * @apiErrorExample {json} Error-Response:
-        * 
-        * {
-        * "error": true,
-        * "message": "No Notifications",
-        * "status": 200,
-        * "data": null
-        * }
-     */
 
 } // end set Router

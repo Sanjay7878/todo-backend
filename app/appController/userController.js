@@ -460,29 +460,6 @@ let changePassword = (req, res) =>{
     }
 } // end change password
 
-let getAllUserNotifications = (req, res) =>{
-    NotificationModel.find({receiverId: req.body.userId})
-        .select('-__v -_id')
-        .sort('modifiedOn')
-        .skip(parseInt(req.body.skip) || 0)
-        .lean()
-        .limit(10)
-        .exec((err, notfications)=>{
-            if(err){
-                logger.error(err, " notifications: getAllUserNotifications", 5)
-                let apiResponse = response.generate(true, "Failed to Find Notifications", 500, null)
-                res.send(apiResponse)
-            } else if(check.isEmpty(notfications)){
-                logger.info("No Notifications", " notifications: getAllUserNotifications", 5)
-                let apiResponse = response.generate(false, "No Notifications", 200, null)
-                res.send(apiResponse)
-            } else {
-                let apiResponse = response.generate(false, "User Notifications Found", 200, notfications)
-                res.send(apiResponse)
-            }
-        })
-} // end get all user notifications
-
 
 module.exports = {
     signupFunction: signupFunction,
