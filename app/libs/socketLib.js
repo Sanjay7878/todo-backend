@@ -648,22 +648,33 @@ let setServer = (server) =>{
                 logger.error(err, "socketLib: evenetEmitter - accepted-request")
             } else {
 
-                let options = {
-                    $set:{
-                        'friends.$.requestStatus': 'accepted'
-                    }
+                let newFriend ={
+                    friendId: user.user,
+                    friendName: userDetails.firstName+' '+userDetails.lastName,
+                    email: userDetails.email,
+                    mobileNumber: userDetails.mobileNumber,
+                    requestStatus: 'accepted',
+                    modifiedOn: time.now()
                 }
 
-                UserModel.findOneAndUpdate({'friends.friendId': user.friend}, options, (err, result)=>{
+                let options = {
+                    $set:{
+                        friends :[newFriend]
+                    }
+                }
+                
+                UserModel.findOneAndUpdate({userId: user.friend},options, (err, result)=>{
                     if(err){
                         console.log(err)
                     } else {
                         let currentFriend;
+                        
                         for(let friend of result.friends){
-                            if(user.friend === friend.friendId){
+                            if(user.user === friend.friendId){
                                 currentFriend = friend
                             }
                         }
+                        
                         let userData = {
                             user: user.friend,
                             friendDetails: userDetails
