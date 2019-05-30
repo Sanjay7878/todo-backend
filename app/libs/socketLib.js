@@ -555,19 +555,20 @@ let setServer = (server) =>{
     }) //end socket connection
 
     eventEmitter.on('send-request', (data)=>{
-        let newFriendRequest = {
-            friendId: data.friendId,
-            friendName: data.friendName,
-            email: data.email,
-            mobileNumber: data.mobileNumber,
-            requestStatus: 'pending',
-            modifiedOn: time.now()
-        }
         
         UserModel.findOne({'friends.friendId': data.friendId}, (err, result)=>{
             if(err){
                 logger.error(err, 'socketLib: evenetEmitter - send-request', 6)
             }else if(check.isEmpty(result)){
+                let newFriendRequest = {
+                    friendId: data.friendId,
+                    friendName: data.friendName,
+                    email: data.email,
+                    mobileNumber: data.mobileNumber,
+                    requestStatus: 'pending',
+                    modifiedOn: time.now()
+                }
+
                 let options = {
                     $push: {
                         friends:{
@@ -643,13 +644,13 @@ let setServer = (server) =>{
     }) // end eventemitter on recieve-request
 
     eventEmitter.on('accept-request', (user)=>{
-        UserModel.findOne({userId: user.user}, (err, userDetails)=>{
+        UserModel.findOne({userId: user.currentUser}, (err, userDetails)=>{
             if(err){
                 logger.error(err, "socketLib: evenetEmitter - accepted-request")
             } else {
-                console.log(userDetails)
+                
                 let newFriend ={
-                    friendId: user.user,
+                    friendId: user.currentUser,
                     friendName: userDetails.firstName+' '+userDetails.lastName,
                     email: userDetails.email,
                     mobileNumber: userDetails.mobileNumber,
@@ -662,33 +663,25 @@ let setServer = (server) =>{
                     }
                 }
                 
-                UserModel.findOneAndUpdate({userId: user.friend},options, (err, result)=>{
+                UserModel.findOneAndUpdate({userId: user.friendId},options, (err, result)=>{
                     if(err){
                         console.log(err)
                     } else {
-                        let currentFriend;
-                        
-                        for(let friend of result.friends){
-                            if(user.user === friend.friendId){
-                                currentFriend = friend
-                            }
-                        }
-                        
+
                         let userData = {
-                            user: user.friend,
-                            friendDetails: userDetails
+                            user: user.currentUser,
+                            friendDetails: result
                         }
                         console.log('Friend Request Accepted')
                         let notify = new NotificationModel({
                             notificationId: shortid.generate(),
-                            senderId:  user.user,
+                            senderId:  user.currentUser,
                             senderName: user.userName,
-                            receiverId: user.friend,
-                            receiverName: currentFriend.friendName,
+                            receiverId: user.friendId,
+                            receiverName: result.firstName+' '+result.lastName,
                             message: `Friend Request Has Been Accepted`,
                             modifiedOn: time.now()
                         })
-
                         setTimeout(()=>{
                             eventEmitter.emit('accepted-request', userData)
                         }, 2000)
@@ -709,6 +702,7 @@ let setServer = (server) =>{
     }) // end eventEmiiter on accept-request
    
     eventEmitter.on('accepted-request', (data)=>{
+        console.log(data)
         let receievedRequest = {
             friendId: data.friendDetails.userId,
             friendName: data.friendDetails.firstName+' '+data.friendDetails.lastName,

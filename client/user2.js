@@ -31,8 +31,7 @@ let chatSocket =() =>{
     
     $('#addFriend').on('click', ()=>{
         let data = {
-            user: userId,
-            friend: friend.friendId
+            friendId: friend.friendId
         }
         socket.emit('accept-friend-request', data)
     })
