@@ -17,7 +17,6 @@ const tokenLib = require('./tokenLib')
 const time = require('./timeLib')
 const check = require('./check')
 const logger = require('./logger')
-const redisLib = require('../libs/redisLib')
 
 let setServer = (server) =>{
 
@@ -63,26 +62,6 @@ let setServer = (server) =>{
 
                     socket.userId = currentUser.userId
                     fullName  = `${currentUser.firstName} ${currentUser.lastName}`
-                    let key = currentUser.userId
-                    let value = fullName
-                    redisLib.setUsersInHash('onlineUsers', key, value, (err, userOnlineList)=>{
-                        if(err){
-                            console.log(err)
-                        } else {
-                            redisLib.getAllUsersInHash('onlineUsers', (err, result)=>{
-                                if(err){
-                                    console.log(err)
-                                } else {
-                                    console.log(`${value} is online`)
-
-                                    //setting room name
-                                    socket.rooms = 'friendsChat'
-                                    socket.join(socket.rooms)
-                                    socket.to(socket.rooms).broadcast.emit('online-user-list', result)  
-                                }
-                            })
-                        }
-                    }) // end set user online
                 }
             })
         }) // end socket on set-user
@@ -94,20 +73,7 @@ let setServer = (server) =>{
          *@apiDescription This event <b>("disconnect")</b> has to be emitted when a user logout or closes the application.
         */
         socket.on('disconnect', ()=>{
-
-            if(socket.userId){
-                redisLib.deleteUserFromHash('onlineUsers', socket.userId)
-                redisLib.getAllUsersInHash('onlineUsers', (err, result)=>{
-                    if(err){
-                        console.log(err)
-                    }else {
-                        socket.leave(socket.rooms)
-                        socket.to(socket.rooms).broadcast.emit('online-user-list', result)
-                        console.log("User has disconnected")
-                    }
-                })
-            }
-            
+            console.log("User has disconnected")
         }) // end socket on disconnect
 
         /**
