@@ -647,7 +647,7 @@ let setServer = (server) =>{
             if(err){
                 logger.error(err, "socketLib: evenetEmitter - accepted-request")
             } else {
-
+                console.log(userDetails)
                 let newFriend ={
                     friendId: user.user,
                     friendName: userDetails.firstName+' '+userDetails.lastName,
@@ -656,7 +656,6 @@ let setServer = (server) =>{
                     requestStatus: 'accepted',
                     modifiedOn: time.now()
                 }
-
                 let options = {
                     $set:{
                         friends :[newFriend]
