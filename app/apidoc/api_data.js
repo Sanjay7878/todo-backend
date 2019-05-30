@@ -246,6 +246,47 @@ define({ "api": [
     "name": "GetHttpTodoSanjayinfotechyComApiV1FriendsGetSentRequests"
   },
   {
+    "type": "post",
+    "url": "http://todo.sanjayinfotechy.com/api/v1/friends/delete/notification",
+    "title": "Delete A particular Notifications",
+    "version": "0.0.1",
+    "group": "Friends",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "notificationId",
+            "description": "<p>notificationId of the notification. (query params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n\"error\": false,\n\"message\": \"Notification Found\",\n\"status\": 200,\n\"data\": { \n          \"n\": 1,\n                    \"ok\": 1,\n                    \"deletedCount\": 1\n      }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\"error\": false,\n\"message\": \"No Notification Found\",\n\"status\": 404,\n\"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/friends.js",
+    "groupTitle": "Friends",
+    "name": "PostHttpTodoSanjayinfotechyComApiV1FriendsDeleteNotification"
+  },
+  {
     "type": "get",
     "url": "http://todo.sanjayinfotechy.com/api/v1/toDo/all/todo/tasks",
     "title": "Get All Task Of A ToDo List",

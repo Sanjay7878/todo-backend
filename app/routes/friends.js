@@ -246,5 +246,35 @@ module.exports.setRouter = (app) =>  {
         * "data": null
         * }
      */
+
+     app.post(`${baseUrl}/delete/notification`, notificationController.deleteNotification)
+     /**
+     * @api {post} http://todo.sanjayinfotechy.com/api/v1/friends/delete/notification Delete A particular Notifications
+     * @apiVersion 0.0.1
+     * @apiGroup Friends
+     * 
+     * @apiParam {string} notificationId notificationId of the notification. (query params) (required)
+     * 
+        * @apiSuccessExample {json} Success-Response:
+        * {
+        * "error": false,
+        * "message": "Notification Found",
+        * "status": 200,
+        * "data": { 
+        *           "n": 1,
+                    "ok": 1,
+                    "deletedCount": 1
+        *       }
+        * }
+        * 
+        * @apiErrorExample {json} Error-Response:
+        * 
+        * {
+        * "error": false,
+        * "message": "No Notification Found",
+        * "status": 404,
+        * "data": null
+        * }
+     */
             
 } // end set Router
