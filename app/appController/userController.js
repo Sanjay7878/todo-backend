@@ -363,7 +363,7 @@ let sendResetPasswordLink = (req, res)=>{
                 res.send(apiResponse)
             } else {
                 logger.info("User Found", "userController: sendResetPasswordLink", 8)
-                const html = `<a href="http://localhost:4200/${userDetails.userId}/reset-password"> Click Here to reset the password</a>`
+                const html = `<a href="http://mytodo.sanjayinfotechy.com/${userDetails.userId}/reset-password"> Click Here to reset the password</a>`
                 let details = {
                     email: req.body.email,
                     message: "Rest Password Link",

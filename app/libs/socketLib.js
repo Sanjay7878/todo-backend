@@ -710,6 +710,7 @@ let setServer = (server) =>{
                         friends :[friendStatus]
                     }
                 }
+                console.log(statusData.friend)
                 UserModel.findOneAndUpdate({userId: statusData.friend}, options, {multi: true}, (err, result)=>{
                     if(err){
                         console.log(err)
