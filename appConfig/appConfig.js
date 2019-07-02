@@ -7,10 +7,6 @@ appConfig.db = {
     uri: "mongodb://127.0.0.1:27017/toDoListDB"
 }
 appConfig.apiVersion = "/api/v1"
-appConfig.name = "Sanjay C"
-appConfig.url = "http://localhost:4200"
-appConfig.email = "sanjayinfotechy@gmail.com"
-appConfig.password = "SanjaySan@27"
 
 module.exports = {
     port: appConfig.port,
